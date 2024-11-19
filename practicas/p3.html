@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>p3</title>
+</head>
+<body>
+    <script>
+        let name = "";
+        let activity = "";
+
+        function respuestaFea(){
+            alert("Reinicia la pagina y pon tus datos bien");
+        }
+
+        function respuestaLinda(){
+            alert("Datos guardados correctamente");
+        }
+
+        function bienvenida(){
+            alert("Bienvenido, te pediremos datos que mandaremos a una empresa de publicidad china");
+        }
+
+        function insertar_datos(){
+            bienvenida();
+
+            let name = prompt("Ingresa tu nombre:");
+            let activity = prompt("Ingresa tu actividad favorita:");
+            let respuesta = confirm("Tus datos son correctos?");
+            if(respuesta){
+                respuestaLinda();
+            }else{
+                respuestaFea();
+            }
+        }
+
+        insertar_datos();
+
+    </script>
+</body>
+</html>
