@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <title>p3</title>
 </head>
+
 <body>
+    <style>
+        body {
+            background-color: #091057;
+        }
+    </style>
+
     <script>
         let name = "";
         let activity = "";
 
-        function respuestaFea(){
+        function respuestaFea() {
             alert("Reinicia la pagina y pon tus datos bien");
         }
 
-        function respuestaLinda(){
+        function respuestaLinda() {
             alert("Datos guardados correctamente");
         }
 
-        function bienvenida(){
+        function bienvenida() {
             alert("Bienvenido, te pediremos datos que mandaremos a una empresa de publicidad china");
         }
 
-        function insertar_datos(){
+        function insertar_datos() {
             bienvenida();
 
             let name = prompt("Ingresa tu nombre:");
             let activity = prompt("Ingresa tu actividad favorita:");
             let respuesta = confirm("Tus datos son correctos?");
-            if(respuesta){
+            if (respuesta) {
                 respuestaLinda();
-            }else{
+            } else {
                 respuestaFea();
             }
         }
@@ -38,4 +46,5 @@
 
     </script>
 </body>
+
 </html>
