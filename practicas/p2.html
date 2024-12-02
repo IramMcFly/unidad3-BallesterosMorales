@@ -7,14 +7,21 @@
 </head>
 
 <body>
+
+    <style>
+        body {
+            background-color: #091057;
+        }
+    </style>
+    
     <script>
         let name = prompt("Inserta tu Nombre: ");
-        let age = prompt("Hola " + name +  ", Inserta tu Edad: ");
+        let age = prompt("Hola " + name + ", Inserta tu Edad: ");
         let country = prompt("Inserta tu pais de residencia: ");
-        let respuesta = confirm("Tus datos ingresados son, Nombre: " + name + ", Edad: " + age + ", Pais de residencia: " + country + " Es correcto?");        
-        if(confirm){
+        let respuesta = confirm("Tus datos ingresados son, Nombre: " + name + ", Edad: " + age + ", Pais de residencia: " + country + " Es correcto?");
+        if (confirm) {
             alert("Datos guardados correctamente");
-        }else{
+        } else {
             alert("Ingresa tus datos correctamente");
         }
 
