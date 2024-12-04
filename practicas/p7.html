@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P7</title>
+  <style>
+    body {
+      background-color: #091057;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+
+    .container {
+      background-color: #fff;
+      color: #333;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 32px;
+      color: #1ad8cb;
+    }
+
+    button {
+      background-color: #d81a95;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 15px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #7b1a55;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .dropbtn {
+      background-color: #af4c93;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .menu {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 5px;
+      top: 45px;
+    }
+
+    .menu li {
+      padding: 10px 15px;
+      list-style: none;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .menu a {
+      color: black;
+      text-decoration: none;
+      display: block;
+    }
+
+    .menu a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .menu li:last-child {
+      border-bottom: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>P7 - Películas Favoritas</h1>
+
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleMenu()">Películas Favoritas</button>
+      <ul class="menu" id="menu-peliculas">
+        <li><a href="#">El Jinete sin Cabeza</a></li>
+        <li><a href="#">La Cabeza sin jinete</a></li>
+        <li><a href="#">El entierro de la gran anaconda</a></li>
+        <li><a href="#">Donde están las guerras</a></li>
+        <li><a href="#">Merequetengue</a></li>
+      </ul>
+    </div>
+
+    <button onclick="eliminarPrimerEnlace()">Eliminar Primer Enlace</button>
+    <button onclick="agregarEnlace()">Agregar Enlace</button>
+  </div>
+
+  <script>
+    function eliminarPrimerEnlace() {
+      const menu = document.getElementById("menu-peliculas");
+      const primerEnlace = menu.firstElementChild;
+      if (primerEnlace) {
+        menu.removeChild(primerEnlace);
+      }
+    }
+
+    function agregarEnlace() {
+      const menu = document.getElementById("menu-peliculas");
+      const nuevoEnlace = prompt("Ingresa la URL de la película:");
+      const nuevoNombre = prompt("Ingresa el nombre de la película:");
+
+      if (nuevoEnlace && nuevoNombre) {
+        const nuevoElemento = document.createElement("li");
+        const enlace = document.createElement("a");
+        enlace.href = nuevoEnlace;
+        enlace.textContent = nuevoNombre;
+        nuevoElemento.appendChild(enlace);
+        menu.appendChild(nuevoElemento);
+      }
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById("menu-peliculas");
+      menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+    }
+  </script>
+
+</body>
+
+</html>
