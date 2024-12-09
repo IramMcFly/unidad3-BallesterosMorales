@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 8: CSS, HTML y JS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Práctica 8: CSS, HTML y JS</h1>
+    <div class="container">
+        <button id="btn-suma">Suma de dos números</button>
+        <button id="btn-esPar">Determinar si un número es par</button>
+        <button id="btn-map">Aplicación de .map()</button>
+        <button id="btn-nombres">Obtener nombres de objetos</button>
+    </div>
+    <div id="output"></div>
+
+    <script>
+        // Función para sumar dos números
+        const suma = (num1, num2) => num1 + num2;
+
+        // Función para verificar si un número es par
+        const esPar = (num) => num % 2 === 0;
+
+        // Aplicación de .map
+        const aplicarMap = (arr) => arr.map((el) => el * 2);
+
+        // Extraer nombres de objetos
+        const obtenerNombres = (arr) => arr.map((obj) => obj.nombre);
+
+        // Lógica para los botones
+        document.getElementById("btn-suma").addEventListener("click", () => {
+            const num1 = parseFloat(prompt("Ingresa el primer número:"));
+            const num2 = parseFloat(prompt("Ingresa el segundo número:"));
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Por favor, ingresa números válidos.");
+                return;
+            }
+            const result = suma(num1, num2);
+            document.getElementById("output").textContent = `La suma de ${num1} y ${num2} es ${result}`;
+        });
+
+        document.getElementById("btn-esPar").addEventListener("click", () => {
+            const num = parseInt(prompt("Ingresa un número:"));
+            if (isNaN(num)) {
+                alert("Por favor, ingresa un número válido.");
+                return;
+            }
+            const result = esPar(num);
+            document.getElementById("output").textContent = `¿Es ${num} par? ${result}`;
+        });
+
+        document.getElementById("btn-map").addEventListener("click", () => {
+            const input = prompt("Ingresa un arreglo de números separados por comas:");
+            if (!input) {
+                alert("Por favor, ingresa un arreglo válido.");
+                return;
+            }
+            const arr = input.split(",").map(Number);
+            if (arr.some(isNaN)) {
+                alert("Todos los elementos deben ser números.");
+                return;
+            }
+            const result = aplicarMap(arr);
+            document.getElementById("output").textContent = `Arreglo original: [${arr}] - Resultado con .map(): [${result}]`;
+        });
+
+        document.getElementById("btn-nombres").addEventListener("click", () => {
+            const objetos = [
+                { nombre: "Juan", edad: 25 },
+                { nombre: "Ana", edad: 30 },
+                { nombre: "Luis", edad: 20 }
+            ];
+            const result = obtenerNombres(objetos);
+            document.getElementById("output").textContent = `Nombres extraídos: [${result.join(", ")}]`;
+        });
+    </script>
+</body>
+
+</html>
